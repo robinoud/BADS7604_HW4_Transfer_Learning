@@ -56,3 +56,13 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/51129b4ad4702386ebb0069459e5de5e1aa7c0b4/model%20accuracy.png" style="width:700px;"/>
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/51129b4ad4702386ebb0069459e5de5e1aa7c0b4/model%20loss.png" style="width:700px;"/>
+
+
+## 5.Discussion
+ 	อภิปรายผลลัพธ์ที่ได้ว่ามีอะไรเป็นไปตามสมมติฐาน หรือมีอะไรผิดคาดไม่เป็นไปตามสมมติฐานบ้าง, วิเคราะห์เพิ่มเติมว่าสิ่งที่ผิดคาดหรือผิดปกตินั้นน่าจะเกิดจากอะไร, ในกรณีที่ dataset มีปัญหา วิเคราะห์ด้วยว่าวิธีแก้ที่เราใช้สามารถแก้ปัญหาของ dataset ได้จริงหรือไม่
+
+•	Different & small dataset: avoid overfitting by not fine-tuning the weights on a small dataset, and use extracted features from lower levels of the ConvNet which are more generalizable.
+
+## 6.Conclusion
+ สรุปผลของการบ้านนี้ โดยเน้นการตอบโจทย์ปัญหา (research question) หรือจุดประสงค์หลัก (objective) ของการบ้านแต่ละครั้ง
+
