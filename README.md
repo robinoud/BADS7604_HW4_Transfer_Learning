@@ -31,5 +31,13 @@ We decided that each class of Buddha statues would approximately have 100 images
 
 ### Data pre-processing and splitting
 
-In the process, all images are converted to a .png file and manually extracted into sub-folders for easy access in the next steps. Next, we preprocess the images by running tf.keras.preprocessing.image.load_img() function to load an image into PIL format, having 224 x 224 images as CNN models expect such a target size. A PIL Image instance is then converted to a Numpy array using tf.keras.preprocessing.image.img_to_array() function, returning a 3D Numpy array (501, 224, 224, 3). Last, we also need to run the images through a preprocess input function of the model we have used, such as tf.keras.applications.vgg16.preprocess_input() for preprocessing the NumPy array encoding a batch of images.
+In the process, all images are converted to a .png file and manually extracted into sub-folders for easy access in the next steps. Next, we resize the images by running tf.keras.preprocessing.image.load_img() function to load the images with different heights and widths into PIL format, sizing 224 x 224 pixels as CNN models expect such a target size. A PIL Image instance is then converted to a Numpy array using tf.keras.preprocessing.image.img_to_array() function, returning a 3D Numpy array (501, 224, 224, 3). Last, we also need to run the images through a preprocess input function of the model we have used, such as tf.keras.applications.vgg16.preprocess_input() for preprocessing the NumPy array encoding a batch of images.
+
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/823814a4fdb8e79904e7bd55a1c93bfa84a8f834/preprocessed%20images.png" style="width:800px;"/>
+
+## 3.Network Architecture
+It would be impossible for us with no high computing power to train models from scratch with massive amounts of image data. However, there is now a transfer learning technique that empowers us to jump-start our CNNs with the big SOTA models and their pre-trained weights. Therefore, we used ImageNet-pretrained models in this experiment to reuse lower layers of the models (feature extractor) and train it with our custom dataset only on layers of classifier due to the small dataset differing from the ImageNet dataset. 
+
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/0236b467df162ed81b1eb582e0c5629e93364ea9/CNN%20for%20image%20classification.png" style="width:600px;"/>
+
 
