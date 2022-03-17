@@ -83,6 +83,6 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 
 **`16.67%`** 🍕 - **`6310422069`** Phawit Boonrat - **`Explore data`** **`Experiment with MLP `** **`Experiment with traditional ML`**
 
-<img src="https://th-test-11.slatic.net/p/49b63f074bd226e6871cc97c5525fc15.jpg" alt="drawing" style="width:200px;"/>
+
 
 ## End Credit
