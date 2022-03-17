@@ -16,7 +16,7 @@ The five Buddha images and temples are 1) Luang Pho Sothon (โสธร), a Bud
 
 
 ## 2.Dataset
-Since the 5 Floating Buddha Statues are mostly rare art objects of personal or family property, the dataset cannot be collected by photographing itself. So the Internet is the best source of information, especially the Thai amulet websites as a gold mine, filled with vivid images as most of the audience need to see their details and patterns.
+Since the 5 Floating Buddha Statues are mostly rare art objects belonging to personal or family property, the dataset cannot be collected by photographing itself. So the Internet is the best source of information, especially the Thai amulet websites being like a gold mine, filled with Buddha images in good condition which clearly represent their details and patterns.
 
 | Class Code No.| Thai Name | English Name |
 | :------: | ------ | ------ | 
