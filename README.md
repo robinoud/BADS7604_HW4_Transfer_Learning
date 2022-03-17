@@ -66,7 +66,7 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 ## 6.Conclusion
  สรุปผลของการบ้านนี้ โดยเน้นการตอบโจทย์ปัญหา (research question) หรือจุดประสงค์หลัก (objective) ของการบ้านแต่ละครั้ง
 
-## End Credit
+
 ### _The Deep Sleeping Crew (Group6) Contribution - Uniform_
 **`16.67%`** 🍕 - **`6310422057`** Natdanai Thedwichienchai - **`Prepare dataset`** **`Experiment with MLP `**  **`Experiment with traditional ML`** 
 
@@ -82,4 +82,4 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 
 <img src="https://th-test-11.slatic.net/p/49b63f074bd226e6871cc97c5525fc15.jpg" alt="drawing" style="width:200px;"/>
 
-### Enjoy your pizza!!
+## End Credit
