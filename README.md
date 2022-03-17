@@ -54,4 +54,5 @@ EfficientNetB0, one of six ImageNet-pretrained models we experiment with, perfor
 ## 4.Training
 Our custom models were compiled with Adam as the optimizer, sparse_categorical_crossentropy as the loss function, and ReLU as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in Google Colab environment, providing access to decreasing the training time within xx seconds. We have trained the model for 100 epochs with a batch size of 100. Lastly, the trained model was exported in the HDF5 file as a multi-class classifier. 
 
-
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/51129b4ad4702386ebb0069459e5de5e1aa7c0b4/model%20accuracy.png" style="width:700px;"/>
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/51129b4ad4702386ebb0069459e5de5e1aa7c0b4/model%20loss.png" style="width:700px;"/>
