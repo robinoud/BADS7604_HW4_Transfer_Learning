@@ -16,7 +16,8 @@ The five Buddha images and temples are 1) Luang Pho Sothon (โสธร), a Bud
 
 
 ## 2.Dataset
-Since the 5 Floating Buddha Statues are mostly rare art objects belonging to personal or family property, the dataset cannot be collected by photographing itself. So the Internet is the best source of information, especially the Thai amulet websites being like a gold mine, filled with Buddha images in good condition which clearly represent their details and patterns.
+### Data source
+Since the 5 Floating Buddha Statues are mostly rare art objects belonging to personal or family property, the set of images cannot be collected by photographing itself. So various sources on the internet would be the solution now, especially the Thai amulet websites being like a gold mine, filled with Buddha images in good condition which clearly represent their details and patterns.
 
 | Class Code No.| Thai Name | English Name |
 | :------: | ------ | ------ | 
@@ -26,6 +27,9 @@ Since the 5 Floating Buddha Statues are mostly rare art objects belonging to per
 | 3 | หลวงพ่อวัดไร่ขิง | Wat Rai Khing | 
 | 4 | หลวงพ่อทอง| Thong | 
 
-We decided that each class of Buddha statues would have 100 images because reusing the lower layers of a  pre-trained model for transfer learning enables us to have a small dataset different from the ImageNet dataset.
+We decided that each class of Buddha statues would approximately have 100 images because reusing the lower layers of a  pre-trained model for transfer learning enables us to have a small dataset different from the ImageNet dataset.
 
+### Data pre-processing and splitting
+
+In the process, all images are converted to a .png file and manually extracted into sub-folders for easy access in the next steps. Next, we preprocess the images by running tf.keras.preprocessing.image.load_img() function to load an image into PIL format, having 224 x 224 images as CNN models expect such a target size. A PIL Image instance is then converted to a Numpy array using tf.keras.preprocessing.image.img_to_array() function, returning a 3D Numpy array (501, 224, 224, 3). Last, we also need to run the images through a preprocess input function of the model we have used, such as tf.keras.applications.vgg16.preprocess_input() for preprocessing the NumPy array encoding a batch of images.
 
