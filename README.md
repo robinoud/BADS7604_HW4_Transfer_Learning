@@ -26,3 +26,6 @@ Since the 5 Floating Buddha Statues are mostly rare art objects belonging to per
 | 3 | หลวงพ่อวัดไร่ขิง | Wat Rai Khing | 
 | 4 | หลวงพ่อทอง| Thong | 
 
+We decided that each class of Buddha statues would have 100 images because reusing the lower layers of a  pre-trained model for transfer learning enables us to have a small dataset different from the ImageNet dataset.
+
+
