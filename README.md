@@ -21,6 +21,7 @@ The five Buddha images and temples are 1) **`Luang Pho Sothon (โสธร)`**,
 ### Data source
 Since the Five Floating Buddha Statues are mostly rare art objects belonging to personal or family property, the set of images cannot be collected by photographing itself. So various sources on the internet would be the solution now, especially the Thai amulet websites being like a gold mine, filled with Buddha images in good condition which clearly represent their details and patterns.
 
+
 | Class Code No.| Thai Name | English Name |
 | :------: | ------ | ------ | 
 | 0 | หลวงพ่อโสธร | Sothon |
@@ -37,14 +38,17 @@ Link to download the dataset: https://drive.google.com/drive/folders/1JzbkJWOOQN
 
 In the process, all images are converted to a .png file and manually extracted into sub-folders for easy access in the next steps. Next, we resize the images by running **`tf.keras.preprocessing.image.load_img()`** function to load the images with different heights and widths into PIL format, sizing 224 x 224 pixels as CNN models expect such a target size. A PIL Image instance is then converted to a Numpy array using **`tf.keras.preprocessing.image.img_to_array()`** function, returning a 3D Numpy array (501, 224, 224, 3). Last, we also need to run the images through a preprocess input function of the model we have used, such as **`tf.keras.applications.efficientnet.preprocess_input()`** for preprocessing the NumPy array encoding a batch of images.
 
+<p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/786e5b558be0f610d95958e3cbe30c0b0b70fc31/preprocessed%20five%20Buddha%20images.jpg" style="width:800px;"/>
+ </p>
 
 Finally, we split each Buddha image into three sets: train, valid, and test. These classes are necessary for training our model. We decided to use an 53.6% train, 13.4% valid, and 33% test formula. 
 
 ## 3.Network Architecture
 It would be impossible for us with no high computing power to train models from scratch with massive amounts of image data. However, there is now a transfer learning technique that empowers us to jump-start our CNNs with the big SOTA models and their pre-trained weights. 
 
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/0236b467df162ed81b1eb582e0c5629e93364ea9/CNN%20for%20image%20classification.png" style="width:600px;"/>
+<p align="center">
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/0236b467df162ed81b1eb582e0c5629e93364ea9/CNN%20for%20image%20classification.png" style="width:600px;"/></p>
 
 We have used six ImageNet-pretrained models such as VGG16, ResNet50, EfficientNetB0, etc., in this experiment to reuse lower layers of the models (feature extractor) and train it with our custom dataset only on layers of classifier due to the small dataset differing from the ImageNet dataset. (including fine-tune model)
 
@@ -52,14 +56,16 @@ We have used six ImageNet-pretrained models such as VGG16, ResNet50, EfficientNe
 
 EfficientNetB0, one of six ImageNet-pretrained models we experiment with, performs 93.37% accurately on the test set with transfer learning no fine-tuning. We freeze the pre-trained CNN parameters to be non-trainable — we can see that we have more than 4M non-trainable parameters in our new model. 
 
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/6107d576979f9c328382ab49bbcad0adf78e2921/classifier%20of%20EfficientNetB0.png" style="width:600px;"/>
+<p align="center">
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/6107d576979f9c328382ab49bbcad0adf78e2921/classifier%20of%20EfficientNetB0.png" style="width:600px;"/></p>
+  
 The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters as shown in the figure below. (This also results in a shorter training time per epoch when compared to the benchmark model.)
 
 ## 4.Training
 Our custom models were compiled with Adam as the optimizer, sparse_categorical_crossentropy as the loss function, and ReLU as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in Google Colab environment, providing access to decreasing the training time within xx seconds. We have trained the model for 100 epochs with a batch size of 100. Lastly, the trained model was exported in the HDF5 file as a multi-class classifier. 
 
-
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/25a8ad01c49e30cb4039854c3704e2103585b198/asset/model%20acc%20&%20loss.jpeg" style="width:700px;"/>
+<p align="center">
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/25a8ad01c49e30cb4039854c3704e2103585b198/asset/model%20acc%20&%20loss.jpeg" style="width:700px;"/></p>
 
 ### Using Pre-trained Layers for Fine-Tuning
 
@@ -68,12 +74,16 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 ### Evaluation metric
 We now have predictions for models we want to compare. Below is a function for visualizing class-wise predictions in a confusion matrix using the heatmap method. This tells us how many correct and incorrect classifications each model made by comparing the true class versus the predicted class. Naturally, the larger the values down the diagonal, the better the model did.
 
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/690cd86f7236386be1827258f930775a702b185a/asset/Evaluation%20metric.jpeg" style="width:700px;"/>
+  <p align="center">
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/690cd86f7236386be1827258f930775a702b185a/asset/Evaluation%20metric.jpeg" style="width:700px;"/></p>
 
 From the confusion matrix, the performance of the transfer learning model with no fine-tuning is closed to that with fine-tuning, evident from the stronger diagonal and lighter cells everywhere else. We can also see that this model most commonly misclassifies Thong as Sothon.  
 
 ### Comparing Models
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/f11ed884eba456b864c9c6aa0cffdd4bda16c960/Results%20comparing%20the%206%20models%20tested.png" style="width:700px;"/>
+
+<p align="center">
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/f11ed884eba456b864c9c6aa0cffdd4bda16c960/Results%20comparing%20the%206%20models%20tested.png" style="width:700px;"/></p>
+
 Finally, we can compare the test metric between transfer learning with no fine-tuning and that with fine-tuning. The results show that the first approach with EfficientNetB0 architecture, training only layers of the classifier, captured the patterns in the data more effectively, increasing accuracy to 93.37% in the test set. This is probably thanks to the nature of the data where the model was initially trained and how it transfers to the character domain of the Buddha images. 
 
 
