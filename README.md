@@ -38,7 +38,7 @@ In the process, all images are converted to a .png file and manually extracted i
 
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/786e5b558be0f610d95958e3cbe30c0b0b70fc31/preprocessed%20five%20Buddha%20images.jpg" style="width:800px;"/>
 
-Finally, I split each menu into three sets: train, valid, and test. These classes are necessary for training our model. I decided to use an 80% train, 10% valid, and 10% test formula. This meant that the train set has 240 images per one menu, valid has 30 images per one menu, and test has 30 images per one menu. That’s how I prepared my dataset.
+Finally, we split each Buddha image into three sets: train, valid, and test. These classes are necessary for training our model. We decided to use an 53.6% train, 13.4% valid, and 33% test formula. 
 
 ## 3.Network Architecture
 It would be impossible for us with no high computing power to train models from scratch with massive amounts of image data. However, there is now a transfer learning technique that empowers us to jump-start our CNNs with the big SOTA models and their pre-trained weights. 
