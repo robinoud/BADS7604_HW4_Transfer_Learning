@@ -34,9 +34,11 @@ Link to download the dataset: https://drive.google.com/drive/folders/1JzbkJWOOQN
 
 ### Data pre-processing and splitting
 
-In the process, all images are converted to a .png file and manually extracted into sub-folders for easy access in the next steps. Next, we resize the images by running **`tf.keras.preprocessing.image.load_img()`** function to load the images with different heights and widths into PIL format, sizing 224 x 224 pixels as CNN models expect such a target size. A PIL Image instance is then converted to a Numpy array using **`tf.keras.preprocessing.image.img_to_array()`** function, returning a 3D Numpy array (501, 224, 224, 3). Last, we also need to run the images through a preprocess input function of the model we have used, such as **`tf.keras.applications.vgg16.preprocess_input()`** for preprocessing the NumPy array encoding a batch of images.
+In the process, all images are converted to a .png file and manually extracted into sub-folders for easy access in the next steps. Next, we resize the images by running **`tf.keras.preprocessing.image.load_img()`** function to load the images with different heights and widths into PIL format, sizing 224 x 224 pixels as CNN models expect such a target size. A PIL Image instance is then converted to a Numpy array using **`tf.keras.preprocessing.image.img_to_array()`** function, returning a 3D Numpy array (501, 224, 224, 3). Last, we also need to run the images through a preprocess input function of the model we have used, such as **`tf.keras.applications.efficientnet.preprocess_input()`** for preprocessing the NumPy array encoding a batch of images.
 
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/823814a4fdb8e79904e7bd55a1c93bfa84a8f834/preprocessed%20images.png" style="width:800px;"/>
+
+Finally, I split each menu into three sets: train, valid, and test. These classes are necessary for training our model. I decided to use an 80% train, 10% valid, and 10% test formula. This meant that the train set has 240 images per one menu, valid has 30 images per one menu, and test has 30 images per one menu. That’s how I prepared my dataset.
 
 ## 3.Network Architecture
 It would be impossible for us with no high computing power to train models from scratch with massive amounts of image data. However, there is now a transfer learning technique that empowers us to jump-start our CNNs with the big SOTA models and their pre-trained weights. 
@@ -62,9 +64,12 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 ### Using Pre-trained Layers for Fine-Tuning
 
 ## 5.Result
+สรุปผลว่าเกิด underfit หรือ overfit หรือไม่
 
 ### Evaluation metric
 We now have predictions for all three models we want to compare. Below is a function for visualizing class-wise predictions in a confusion matrix using the heatmap method Seaborn, a visualization library. Confusion matrices are NxN matrices where N is the number of classes, and predicted and target labels are plotted along the X- and Y-axes, respectively. Essentially, this tells us how many correct and incorrect classifications each model made by comparing the true class versus the predicted class. Naturally, the larger the values down the diagonal, the better the model did.
+
+------------figure of Evaluation metric---------------
 
 The transfer learning model with fine-tuning is the best, evident from the stronger diagonal and lighter cells everywhere else. We can also see from the confusion matrix that this model most commonly misclassifies apple pie as bread pudding. Overall, though, it's a clear winner.
 
@@ -74,12 +79,17 @@ Finally, we can compare the training, validation, and test metrics between the b
 
 ## 6.Discussion
  	อภิปรายผลลัพธ์ที่ได้ว่ามีอะไรเป็นไปตามสมมติฐาน หรือมีอะไรผิดคาดไม่เป็นไปตามสมมติฐานบ้าง, วิเคราะห์เพิ่มเติมว่าสิ่งที่ผิดคาดหรือผิดปกตินั้นน่าจะเกิดจากอะไร, ในกรณีที่ dataset มีปัญหา วิเคราะห์ด้วยว่าวิธีแก้ที่เราใช้สามารถแก้ปัญหาของ dataset ได้จริงหรือไม่
-
-•	Different & small dataset: avoid overfitting by not fine-tuning the weights on a small dataset, and use extracted features from lower levels of the ConvNet which are more generalizable.
+• pretrain ดีกว่าจูนเองทั้งหมดอย่างไร (++Different & small dataset: avoid overfitting by not fine-tuning the weights on a small dataset, and use extracted features from lower levels of the ConvNet which are more generalizable.)
+•	โมเดลใหญ่ที่ parameter เยอะๆ ไม่ได้เหมาะกับทุกๆปัญหา
 
 ## 7.Conclusion
  สรุปผลของการบ้านนี้ โดยเน้นการตอบโจทย์ปัญหา (research question) หรือจุดประสงค์หลัก (objective) ของการบ้านแต่ละครั้ง
+In this article, we solved an image classification problem using a custom dataset using Transfer Learning. We saw that by employing various Transfer Learning strategies such as Fine-Tuning, we can generate a model that outperforms a custom-written CNN. Some key takeaways:
 
+Transfer learning can be a great starting point for training a model when you do not possess a large amount of data.
+Transfer learning requires that a model has been pre-trained on a robust source task which can be easily adapted to solve a smaller target task.
+Transfer learning is easily accessible through the Keras API. You can find available pre-trained models here.
+Fine-Tuning a portion of pre-trained layers can boost model performance significantly
 
 ### _The Deep Sleeping Crew (Group6) Contribution - Uniform_
 **`16.67%`** 🍕 - **`6310422057`** Natdanai Thedwichienchai - **`Prepare dataset`** **`Experiment with MLP `**  **`Experiment with traditional ML`** 
