@@ -36,7 +36,7 @@ Link to download the dataset: https://drive.google.com/drive/folders/1JzbkJWOOQN
 
 In the process, all images are converted to a .png file and manually extracted into sub-folders for easy access in the next steps. Next, we resize the images by running **`tf.keras.preprocessing.image.load_img()`** function to load the images with different heights and widths into PIL format, sizing 224 x 224 pixels as CNN models expect such a target size. A PIL Image instance is then converted to a Numpy array using **`tf.keras.preprocessing.image.img_to_array()`** function, returning a 3D Numpy array (501, 224, 224, 3). Last, we also need to run the images through a preprocess input function of the model we have used, such as **`tf.keras.applications.efficientnet.preprocess_input()`** for preprocessing the NumPy array encoding a batch of images.
 
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/823814a4fdb8e79904e7bd55a1c93bfa84a8f834/preprocessed%20images.png" style="width:800px;"/>
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/786e5b558be0f610d95958e3cbe30c0b0b70fc31/preprocessed%20five%20Buddha%20images.jpg" style="width:800px;"/>
 
 Finally, I split each menu into three sets: train, valid, and test. These classes are necessary for training our model. I decided to use an 80% train, 10% valid, and 10% test formula. This meant that the train set has 240 images per one menu, valid has 30 images per one menu, and test has 30 images per one menu. That’s how I prepared my dataset.
 
