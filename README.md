@@ -7,7 +7,7 @@
 •	3
  
 ## 1.Introduction
-Most Thais who are Buddhists tend to bond and pay homage to Buddha images in their daily lives. But few can remember and recognize them. Can you distinguish the outstanding features of the **`5 Floating Buddha Statues`** in the figure below? These Buddha images are one of the sacred groups frequented by Thais to worship for good fortune; three of them are very similar. Therefore, this work aims to collect an image dataset of the 5 Floating Buddha Statues and to build an image classifier by using a **`CNN pre-trained on ImageNet dataset`** and transfer learning to perform **`multi-class classification`** and recognize classes of the images it was never trained on.
+Most Thai who are Buddhists tend to bond and pay homage to Buddha images in their daily life. But few can remember and recognize them. Can you distinguish the outstanding features of the **`5 Floating Buddha Statues`** in the figure below? If not, let our model do it! These Buddha images are one of the sacred groups frequented by Thais to worship for good fortune; three of them are very similar. Therefore, this work aims to collect an image dataset of the 5 Floating Buddha Statues and to build an image classifier by using a **`CNN pre-trained on ImageNet dataset`** and transfer learning to perform **`multi-class classification`** and recognize classes of the images it was never trained on.
 
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/d9161d1181fe12d2ba2763718c3d16c7a12a6d4c/5%20Floating%20Buddha%20Statues.jpeg" style="width:600px;"/>
 
