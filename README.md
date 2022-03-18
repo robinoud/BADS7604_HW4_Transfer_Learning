@@ -53,14 +53,12 @@ The model's classifier consists of one flatten layer, five dense layers, one dro
 Our custom models were compiled with Adam as the optimizer, sparse_categorical_crossentropy as the loss function, and ReLU as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in Google Colab environment, providing access to decreasing the training time within xx seconds. We have trained the model for 100 epochs with a batch size of 100. Lastly, the trained model was exported in the HDF5 file as a multi-class classifier. 
 
 
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/51129b4ad4702386ebb0069459e5de5e1aa7c0b4/model%20accuracy.png" style="width:700px;"/>
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/51129b4ad4702386ebb0069459e5de5e1aa7c0b4/model%20loss.png" style="width:700px;"/>
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/25a8ad01c49e30cb4039854c3704e2103585b198/asset/model%20acc%20&%20loss.jpeg" style="width:700px;"/>
 
 ### Using Pre-trained Layers for Fine-Tuning
 
 ## 5.Result
-สรุปผลว่าเกิด underfit หรือ overfit หรือไม่
-### Grad-Cam
+
 ### Evaluation metric
 We now have predictions for models we want to compare. Below is a function for visualizing class-wise predictions in a confusion matrix using the heatmap method. This tells us how many correct and incorrect classifications each model made by comparing the true class versus the predicted class. Naturally, the larger the values down the diagonal, the better the model did.
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/690cd86f7236386be1827258f930775a702b185a/asset/Evaluation%20metric.jpeg" style="width:700px;"/>
