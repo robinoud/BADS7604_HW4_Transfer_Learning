@@ -2,9 +2,14 @@
 ## _Powered by The Deep Sleeping Crew (Group6)_
 
 ## 1.Introduction
-Most Thai who are Buddhists tend to bond and pay homage to Buddha images in their daily life. But few can remember and recognize them. Can you distinguish the outstanding features of the **`Five Floating Buddha Statues`** in the figure below? If not, let our model do it! These Buddha images are one of the sacred groups frequented by Thais to worship for good fortune; three of them are very similar. Therefore, this work aims to collect an image dataset of the Five Floating Buddha Statues and to build an image classifier by using a **`CNN pre-trained on ImageNet dataset`** and transfer learning to perform **`multi-class classification`** and recognize classes of the images it was never trained on.
+Most Thai, who are Buddhists, tend to bond and pay respect to Buddha images in their daily life; however, only a few people can remember and recognize the details of Buddha images. Thus, the question has been raised 'Can you distinguish the outstanding features of the **`Five Floating Buddha Statues`** in the figure below?' If it is not, let our model do it! 
 
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/d9161d1181fe12d2ba2763718c3d16c7a12a6d4c/5%20Floating%20Buddha%20Statues.jpeg" style="width:600px;"/>
+These Buddha images are one of the religious groups frequented by Thai to worship for good fortune; three are very similar. Therefore, this work aims to collect an image dataset of the five 'Floating Buddha Statues'. Then, to create an image classifier using **`CNN pre-trained on ImageNet dataset`**, transfer learning to perform **`multi-class classification`** and recognize classes of the images that were never trained before.
+
+
+
+
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/d9161d1181fe12d2ba2763718c3d16c7a12a6d4c/5%20Floating%20Buddha%20Statues.jpeg" style="width:650px;"/>
 
 According to the legend, there once were Five Buddha statues with miraculous power floating along five rivers. They were stranded and found by the local villagers, who enshrined each Buddha statue in a temple in the vicinity where they were found. 
 
@@ -61,6 +66,7 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 
 ### Evaluation metric
 We now have predictions for models we want to compare. Below is a function for visualizing class-wise predictions in a confusion matrix using the heatmap method. This tells us how many correct and incorrect classifications each model made by comparing the true class versus the predicted class. Naturally, the larger the values down the diagonal, the better the model did.
+
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/690cd86f7236386be1827258f930775a702b185a/asset/Evaluation%20metric.jpeg" style="width:700px;"/>
 
 From the confusion matrix, the performance of the transfer learning model with no fine-tuning is closed to that with fine-tuning, evident from the stronger diagonal and lighter cells everywhere else. We can also see that this model most commonly misclassifies Thong as Sothon.  
