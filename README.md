@@ -84,6 +84,10 @@ Finally, we can compare the training, validation, and test metrics between the b
 
 ## 7.Conclusion
  สรุปผลของการบ้านนี้ โดยเน้นการตอบโจทย์ปัญหา (research question) หรือจุดประสงค์หลัก (objective) ของการบ้านแต่ละครั้ง
+ • เป็นเรื่องง่าย ที่จะใช้ประโยชน์จาก pre-train models กับ custom dataset ด้วย TL
+ • There are two main factors that will affect your choice of approach: Your dataset size
+ && Similarity of your dataset to the pre-trained dataset (typically ImageNet)
+
 In this article, we solved an image classification problem using a custom dataset using Transfer Learning. We saw that by employing various Transfer Learning strategies such as Fine-Tuning, we can generate a model that outperforms a custom-written CNN. Some key takeaways:
 
 Transfer learning can be a great starting point for training a model when you do not possess a large amount of data.
