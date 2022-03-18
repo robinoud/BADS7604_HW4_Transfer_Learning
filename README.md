@@ -80,21 +80,13 @@ Finally, we can compare the test metric between transfer learning (EfficientNetB
  	อภิปรายผลลัพธ์ที่ได้ว่ามีอะไรเป็นไปตามสมมติฐาน หรือมีอะไรผิดคาดไม่เป็นไปตามสมมติฐานบ้าง, วิเคราะห์เพิ่มเติมว่าสิ่งที่ผิดคาดหรือผิดปกตินั้นน่าจะเกิดจากอะไร, ในกรณีที่ dataset มีปัญหา วิเคราะห์ด้วยว่าวิธีแก้ที่เราใช้สามารถแก้ปัญหาของ dataset ได้จริงหรือไม่
 • Surprisingly, Transfer learning, training only a classifier for the new dataset, classifies data better than Fine-tuning, replacing and retraining the classifier, and then fine-tuning the weights of the pre-trained network via backpropagation. However, recall that pre-trained on ImageNet dataset has been trained on millions of images, including xxx images. Its convolutional layers and trained weights can detect generic features such as edges, colors, etc.
 
-• In this experiment, using some higher model architectures requiring computational power does not guarantee to work best with every dataset.
+• In this experiment, we find that using some higher model architectures requiring computational power does not guarantee to work best with every dataset.
 On the other hand, EfficientNetB0 architecture with the least complexity outperforms the image dataset with lesser size.
 
 ## 7.Conclusion
  สรุปผลของการบ้านนี้ โดยเน้นการตอบโจทย์ปัญหา (research question) หรือจุดประสงค์หลัก (objective) ของการบ้านแต่ละครั้ง
- • เป็นเรื่องง่าย ที่จะใช้ประโยชน์จาก pre-train models กับ custom dataset ด้วย TL
- • There are two main factors that will affect your choice of approach: Your dataset size
- && Similarity of your dataset to the pre-trained dataset (typically ImageNet)
-
-In this article, we solved an image classification problem using a custom dataset using Transfer Learning. We saw that by employing various Transfer Learning strategies such as Fine-Tuning, we can generate a model that outperforms a custom-written CNN. Some key takeaways:
-
-Transfer learning can be a great starting point for training a model when you do not possess a large amount of data.
-Transfer learning requires that a model has been pre-trained on a robust source task which can be easily adapted to solve a smaller target task.
-Transfer learning is easily accessible through the Keras API. You can find available pre-trained models here.
-Fine-Tuning a portion of pre-trained layers can boost model performance significantly
+ In this study, we solved an image classification problem with our custom dataset using transfer learning and fine-tuning. Transfer learning can be a great starting point for training a model when not possessing a large amount of data. It requires that a model has been pre-trained on a robust source task which can be easily adapted to solve a smaller target task like classifying the Buddha images.
+Moreover, collecting our own set of images that cannot be classified with models pre-trained on ImageNet makes us think deeply about how ConvNet works with an image and how we handle the data before passing it through the model's layers.
 
 ### _The Deep Sleeping Crew (Group6) Contribution - Uniform_
 **`16.67%`** 🍕 - **`6310422057`** Natdanai Thedwichienchai - **`Prepare dataset`** **`Experiment with MLP `**  **`Experiment with traditional ML`** 
