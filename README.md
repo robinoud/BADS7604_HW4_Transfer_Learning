@@ -87,12 +87,12 @@ Moreover, collecting our own set of images that cannot be classified with models
  This study is a part of **`Deep Learning course`**  (BADS7604), Businuss Analytics and Data Science, National Institute of Development Admistration (**`NIDA`**)
 
 ### _The Deep Sleeping Crew (Group6) Contribution - Uniform_
-**`16.67%`** 🍕 - **`6310422057`** 
-**`16.67%`** 🍕 - **`6310422061`** 
-**`16.67%`** 🍕 - **`6310422063`** 
-**`16.67%`** 🍕 - **`6310422064`** 
-**`16.67%`** 🍕 - **`6310422065`** 
-**`16.67%`** 🍕 - **`6310422069`**  
+**`16.67%`** 🍕 - **`6310422057`** Natdanai Thedwichienchai Collect data (Wat Ban Laem)+ train efficient net model
+**`16.67%`** 🍕 - **`6310422061`** Wuthipoom Kunaborimas Collect data (Thong)+ train vgg16 model
+**`16.67%`** 🍕 - **`6310422063`** Nuj Lael Collect data (Wat Rai Khing)+ train inception_v3
+**`16.67%`** 🍕 - **`6310422064`** Krisna Pintong Collect data (Sothorn)+ train Mobile NetV2
+**`16.67%`** 🍕 - **`6310422065`** Songpol Bunyang Collect data (Toh)+ train DenseNet121
+**`16.67%`** 🍕 - **`6310422069`** Phawit Boonrat tranform data into same format data + train ResNet50
 
 
 
