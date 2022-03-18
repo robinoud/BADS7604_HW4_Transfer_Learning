@@ -47,19 +47,30 @@ We have used six ImageNet-pretrained models such as VGG16, ResNet50, EfficientNe
 
 ### The best model
 
-EfficientNetB0, one of six ImageNet-pretrained models we experiment with, performs 93.37% accurately on the test set with transfer learning no fine-tuning. We freeze the pre-trained CNN parameters to be non-trainable — we can see that we have more than 4M non-trainable parameters in our new model. The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters as shown in the figure below. (This also results in a shorter training time per epoch when compared to the benchmark model.)
+EfficientNetB0, one of six ImageNet-pretrained models we experiment with, performs 93.37% accurately on the test set with transfer learning no fine-tuning. We freeze the pre-trained CNN parameters to be non-trainable — we can see that we have more than 4M non-trainable parameters in our new model. 
 
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/6107d576979f9c328382ab49bbcad0adf78e2921/classifier%20of%20EfficientNetB0.png" style="width:600px;"/>
+The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters as shown in the figure below. (This also results in a shorter training time per epoch when compared to the benchmark model.)
 
 ## 4.Training
 Our custom models were compiled with Adam as the optimizer, sparse_categorical_crossentropy as the loss function, and ReLU as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in Google Colab environment, providing access to decreasing the training time within xx seconds. We have trained the model for 100 epochs with a batch size of 100. Lastly, the trained model was exported in the HDF5 file as a multi-class classifier. 
 
+
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/51129b4ad4702386ebb0069459e5de5e1aa7c0b4/model%20accuracy.png" style="width:700px;"/>
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/51129b4ad4702386ebb0069459e5de5e1aa7c0b4/model%20loss.png" style="width:700px;"/>
 
+### Using Pre-trained Layers for Fine-Tuning
 
 ## 5.Result
+
+### Evaluation metric
+We now have predictions for all three models we want to compare. Below is a function for visualizing class-wise predictions in a confusion matrix using the heatmap method Seaborn, a visualization library. Confusion matrices are NxN matrices where N is the number of classes, and predicted and target labels are plotted along the X- and Y-axes, respectively. Essentially, this tells us how many correct and incorrect classifications each model made by comparing the true class versus the predicted class. Naturally, the larger the values down the diagonal, the better the model did.
+
+The transfer learning model with fine-tuning is the best, evident from the stronger diagonal and lighter cells everywhere else. We can also see from the confusion matrix that this model most commonly misclassifies apple pie as bread pudding. Overall, though, it's a clear winner.
+
+### Comparing Models
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/f11ed884eba456b864c9c6aa0cffdd4bda16c960/Results%20comparing%20the%206%20models%20tested.png" style="width:700px;"/>
+Finally, we can compare the training, validation, and test metrics between the benchmark model, the pre-trained model, defined using the principle of TL, and the custom model with augmented data. The results show that the TL approach only slightly surpasses the benchmark model. This is probably due to the nature of the data (domain) where the model was initially trained and how it transfers to the Simpsons characters domain. On the other hand, the approach using augmented data was able to capture the patterns in the data more effectively, increasing accuracy to more than 91% in the test set.
 
 ## 6.Discussion
  	อภิปรายผลลัพธ์ที่ได้ว่ามีอะไรเป็นไปตามสมมติฐาน หรือมีอะไรผิดคาดไม่เป็นไปตามสมมติฐานบ้าง, วิเคราะห์เพิ่มเติมว่าสิ่งที่ผิดคาดหรือผิดปกตินั้นน่าจะเกิดจากอะไร, ในกรณีที่ dataset มีปัญหา วิเคราะห์ด้วยว่าวิธีแก้ที่เราใช้สามารถแก้ปัญหาของ dataset ได้จริงหรือไม่
