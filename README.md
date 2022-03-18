@@ -65,17 +65,16 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 
 ## 5.Result
 สรุปผลว่าเกิด underfit หรือ overfit หรือไม่
-
+### Grad-Cam
 ### Evaluation metric
-We now have predictions for all three models we want to compare. Below is a function for visualizing class-wise predictions in a confusion matrix using the heatmap method Seaborn, a visualization library. Confusion matrices are NxN matrices where N is the number of classes, and predicted and target labels are plotted along the X- and Y-axes, respectively. Essentially, this tells us how many correct and incorrect classifications each model made by comparing the true class versus the predicted class. Naturally, the larger the values down the diagonal, the better the model did.
-
+We now have predictions for models we want to compare. Below is a function for visualizing class-wise predictions in a confusion matrix using the heatmap method. This tells us how many correct and incorrect classifications each model made by comparing the true class versus the predicted class. Naturally, the larger the values down the diagonal, the better the model did.
 ------------figure of Evaluation metric---------------
-
-The transfer learning model with fine-tuning is the best, evident from the stronger diagonal and lighter cells everywhere else. We can also see from the confusion matrix that this model most commonly misclassifies apple pie as bread pudding. Overall, though, it's a clear winner.
+The transfer learning model with no fine-tuning is closed to that with fine-tuning, evident from the stronger diagonal and lighter cells everywhere else. From the confusion matrix, we can also see that this model most commonly misclassifies Toh as Thong. 
 
 ### Comparing Models
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/f11ed884eba456b864c9c6aa0cffdd4bda16c960/Results%20comparing%20the%206%20models%20tested.png" style="width:700px;"/>
-Finally, we can compare the training, validation, and test metrics between the benchmark model, the pre-trained model, defined using the principle of TL, and the custom model with augmented data. The results show that the TL approach only slightly surpasses the benchmark model. This is probably due to the nature of the data (domain) where the model was initially trained and how it transfers to the Simpsons characters domain. On the other hand, the approach using augmented data was able to capture the patterns in the data more effectively, increasing accuracy to more than 91% in the test set.
+Finally, we can compare the test metric between transfer learning (EfficientNetB0) with no fine-tuning and that with fine-tuning. The results show that the first approach, training only layers of the classifier, captured the patterns in the data more effectively, increasing accuracy to more than 93.37% in the test set. This is probably thanks to the nature of the data where the model was initially trained and how it transfers to the character domain of the Buddha images. 
+
 
 ## 6.Discussion
  	อภิปรายผลลัพธ์ที่ได้ว่ามีอะไรเป็นไปตามสมมติฐาน หรือมีอะไรผิดคาดไม่เป็นไปตามสมมติฐานบ้าง, วิเคราะห์เพิ่มเติมว่าสิ่งที่ผิดคาดหรือผิดปกตินั้นน่าจะเกิดจากอะไร, ในกรณีที่ dataset มีปัญหา วิเคราะห์ด้วยว่าวิธีแก้ที่เราใช้สามารถแก้ปัญหาของ dataset ได้จริงหรือไม่
