@@ -82,7 +82,7 @@ From the confusion matrix, the performance of the transfer learning model with n
 ### Comparing Models
 
 <p align="center">
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/f11ed884eba456b864c9c6aa0cffdd4bda16c960/Results%20comparing%20the%206%20models%20tested.png" style="width:700px;"/></p>
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/457f96aeee9d94bb14956d87a061425c89bdd828/asset/Results%20comparing%20the%206%20models%20tested.png" style="width:700px;"/></p>
 
 Finally, we can compare the test metric between transfer learning with no fine-tuning and that with fine-tuning. The results show that the first approach with EfficientNetB0 architecture, training only layers of the classifier, captured the patterns in the data more effectively, increasing accuracy to 93.37% in the test set. This is probably thanks to the nature of the data where the model was initially trained and how it transfers to the character domain of the Buddha images. 
 
