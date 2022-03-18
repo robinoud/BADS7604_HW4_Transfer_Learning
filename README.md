@@ -1,11 +1,6 @@
 # Image Data: CNN and Pretraining
 ## _Powered by The Deep Sleeping Crew (Group6)_
 
-### Highlights
-•	1
-•	2
-•	3
- 
 ## 1.Introduction
 Most Thai who are Buddhists tend to bond and pay homage to Buddha images in their daily life. But few can remember and recognize them. Can you distinguish the outstanding features of the **`5 Floating Buddha Statues`** in the figure below? If not, let our model do it! These Buddha images are one of the sacred groups frequented by Thais to worship for good fortune; three of them are very similar. Therefore, this work aims to collect an image dataset of the 5 Floating Buddha Statues and to build an image classifier by using a **`CNN pre-trained on ImageNet dataset`** and transfer learning to perform **`multi-class classification`** and recognize classes of the images it was never trained on.
 
@@ -89,7 +84,7 @@ On the other hand, EfficientNetB0 architecture with the least complexity outperf
 Moreover, collecting our own set of images that cannot be classified with models pre-trained on ImageNet makes us think deeply about how ConvNet works with an image and how we handle the data before passing it through the model's layers.
 
 ## End Credit
-
+ This study is a part of **`Deep Learning course`**  (BADS7604), Businuss Analytics and Data Science, National Institute of Development Admistration (**`NIDA`**)
 
 ### _The Deep Sleeping Crew (Group6) Contribution - Uniform_
 **`16.67%`** 🍕 - **`6310422057`** 
