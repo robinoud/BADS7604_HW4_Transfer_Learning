@@ -73,34 +73,32 @@ The transfer learning model with no fine-tuning is closed to that with fine-tuni
 
 ### Comparing Models
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/f11ed884eba456b864c9c6aa0cffdd4bda16c960/Results%20comparing%20the%206%20models%20tested.png" style="width:700px;"/>
-Finally, we can compare the test metric between transfer learning (EfficientNetB0) with no fine-tuning and that with fine-tuning. The results show that the first approach, training only layers of the classifier, captured the patterns in the data more effectively, increasing accuracy to 93.37% in the test set. This is probably thanks to the nature of the data where the model was initially trained and how it transfers to the character domain of the Buddha images. 
+Finally, we can compare the test metric between transfer learning with no fine-tuning and that with fine-tuning. The results show that the first approach with EfficientNetB0 architecture, training only layers of the classifier, captured the patterns in the data more effectively, increasing accuracy to 93.37% in the test set. This is probably thanks to the nature of the data where the model was initially trained and how it transfers to the character domain of the Buddha images. 
 
 
 ## 6.Discussion
- 	อภิปรายผลลัพธ์ที่ได้ว่ามีอะไรเป็นไปตามสมมติฐาน หรือมีอะไรผิดคาดไม่เป็นไปตามสมมติฐานบ้าง, วิเคราะห์เพิ่มเติมว่าสิ่งที่ผิดคาดหรือผิดปกตินั้นน่าจะเกิดจากอะไร, ในกรณีที่ dataset มีปัญหา วิเคราะห์ด้วยว่าวิธีแก้ที่เราใช้สามารถแก้ปัญหาของ dataset ได้จริงหรือไม่
-• Surprisingly, Transfer learning, training only a classifier for the new dataset, classifies data better than Fine-tuning, replacing and retraining the classifier, and then fine-tuning the weights of the pre-trained network via backpropagation. However, recall that pre-trained on ImageNet dataset has been trained on millions of images, including xxx images. Its convolutional layers and trained weights can detect generic features such as edges, colors, etc.
+ 	
+• Surprisingly, Transfer learning, training only a classifier for the new dataset, classifies data better than fine-tuning, replacing and retraining the classifier, and then fine-tuning the weights of the pre-trained network via backpropagation. However, recall that pre-trained on ImageNet dataset has been trained on millions of images, including xxx images. Its convolutional layers and trained weights can detect generic features such as edges, colors, etc.
 
 • In this experiment, we find that using some higher model architectures requiring computational power does not guarantee to work best with every dataset.
 On the other hand, EfficientNetB0 architecture with the least complexity outperforms the image dataset with lesser size.
 
 ## 7.Conclusion
- สรุปผลของการบ้านนี้ โดยเน้นการตอบโจทย์ปัญหา (research question) หรือจุดประสงค์หลัก (objective) ของการบ้านแต่ละครั้ง
+
  In this study, we solved an image classification problem with our custom dataset using transfer learning and fine-tuning. Transfer learning can be a great starting point for training a model when not possessing a large amount of data. It requires that a model has been pre-trained on a robust source task which can be easily adapted to solve a smaller target task like classifying the Buddha images.
 Moreover, collecting our own set of images that cannot be classified with models pre-trained on ImageNet makes us think deeply about how ConvNet works with an image and how we handle the data before passing it through the model's layers.
 
-### _The Deep Sleeping Crew (Group6) Contribution - Uniform_
-**`16.67%`** 🍕 - **`6310422057`** Natdanai Thedwichienchai - **`Prepare dataset`** **`Experiment with MLP `**  **`Experiment with traditional ML`** 
-
-**`16.67%`** 🍕 - **`6310422061`** Wuthipoom Kunaborimas - **`Prepare dataset`** **`Experiment with MLP `**  **`Experiment with traditional ML`** 
-
-**`16.67%`** 🍕 - **`6310422063`** Nuj Lael - **`Experiment with MLP `**  **`Experiment with traditional ML`** **`Evaluate and conclude result`**
-
-**`16.67%`** 🍕 - **`6310422064`** Krisna Pintong - **`Explore data`** **`Prepare dataset`**  **`Experiment with MLP `**
-
-**`16.67%`** 🍕 - **`6310422065`** Songpol Bunyang - **`Explore data`** **`Experiment with MLP `** **`Evaluate and conclude result`**
-
-**`16.67%`** 🍕 - **`6310422069`** Phawit Boonrat - **`Explore data`** **`Experiment with MLP `** **`Experiment with traditional ML`**
-
-
-
 ## End Credit
+
+
+### _The Deep Sleeping Crew (Group6) Contribution - Uniform_
+**`16.67%`** 🍕 - **`6310422057`** 
+**`16.67%`** 🍕 - **`6310422061`** 
+**`16.67%`** 🍕 - **`6310422063`** 
+**`16.67%`** 🍕 - **`6310422064`** 
+**`16.67%`** 🍕 - **`6310422065`** 
+**`16.67%`** 🍕 - **`6310422069`**  
+
+
+
+
