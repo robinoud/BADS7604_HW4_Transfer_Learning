@@ -78,8 +78,10 @@ Finally, we can compare the test metric between transfer learning (EfficientNetB
 
 ## 6.Discussion
  	อภิปรายผลลัพธ์ที่ได้ว่ามีอะไรเป็นไปตามสมมติฐาน หรือมีอะไรผิดคาดไม่เป็นไปตามสมมติฐานบ้าง, วิเคราะห์เพิ่มเติมว่าสิ่งที่ผิดคาดหรือผิดปกตินั้นน่าจะเกิดจากอะไร, ในกรณีที่ dataset มีปัญหา วิเคราะห์ด้วยว่าวิธีแก้ที่เราใช้สามารถแก้ปัญหาของ dataset ได้จริงหรือไม่
-• pretrain ดีกว่าจูนเองทั้งหมดอย่างไร (++Different & small dataset: avoid overfitting by not fine-tuning the weights on a small dataset, and use extracted features from lower levels of the ConvNet which are more generalizable.)
-•	โมเดลใหญ่ที่ parameter เยอะๆ ไม่ได้เหมาะกับทุกๆปัญหา
+• Surprisingly, Transfer learning, training only a classifier for the new dataset, classifies data better than Fine-tuning, replacing and retraining the classifier, and then fine-tuning the weights of the pre-trained network via backpropagation. However, recall that pre-trained on ImageNet dataset has been trained on millions of images, including xxx images. Its convolutional layers and trained weights can detect generic features such as edges, colors, etc.
+
+• In this experiment, using some higher model architectures requiring computational power does not guarantee to work best with every dataset.
+On the other hand, EfficientNetB0 architecture with the least complexity outperforms the image dataset with lesser size.
 
 ## 7.Conclusion
  สรุปผลของการบ้านนี้ โดยเน้นการตอบโจทย์ปัญหา (research question) หรือจุดประสงค์หลัก (objective) ของการบ้านแต่ละครั้ง
