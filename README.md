@@ -72,12 +72,12 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 ## 5.Result
 
 ### Evaluation metric
-We now have predictions for models we want to compare. Below is a function for visualizing class-wise predictions in a confusion matrix using the heatmap method. This tells us how many correct and incorrect classifications each model made by comparing the true class versus the predicted class. Naturally, the larger the values down the diagonal, the better the model did.
+We now have predictions for models we want to compare. Below is a function for visualizing class-wise predictions in a confusion matrix using the heatmap method. This tells us how many correct and incorrect classifications each model made by comparing the true class versus the predicted class. Naturally, the larger the values down the diagonal, the better the model did. From the confusion matrix, the performance of the transfer learning model with no fine-tuning is closed to that with fine-tuning, evident from the stronger diagonal and lighter cells everywhere else. We can also see that this model most commonly misclassifies Thong as Sothon.
 
   <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/690cd86f7236386be1827258f930775a702b185a/asset/Evaluation%20metric.jpeg" style="width:700px;"/></p>
 
-From the confusion matrix, the performance of the transfer learning model with no fine-tuning is closed to that with fine-tuning, evident from the stronger diagonal and lighter cells everywhere else. We can also see that this model most commonly misclassifies Thong as Sothon.  
+  
 
 ### Comparing Models
 
