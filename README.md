@@ -30,7 +30,7 @@ The five Floating Buddha Statues are mostly rare art items that may belong to pe
 | 3 | หลวงพ่อวัดไร่ขิง | Wat Rai Khing | 
 | 4 | หลวงพ่อทอง| Thong | 
 
-We decided that each class of Buddha statues would approximately have 100 images because reusing the lower layers of a  pre-trained model for transfer learning enables us to have a small dataset different from the ImageNet dataset.
+We decided that each class of Buddha statues would approximately have 100 images because reusing the lower layers of a  pre-trained model for transfer learning enables us to have a small dataset different from the **`ImageNet dataset`**.
 
 Link to download the dataset: https://drive.google.com/drive/folders/1JzbkJWOOQNzhYEDNOGgOVJYv1KHgB7xU?usp=sharing
 
@@ -50,12 +50,12 @@ It would be impossible for us with no high computing power to train models from 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/0236b467df162ed81b1eb582e0c5629e93364ea9/CNN%20for%20image%20classification.png" style="width:600px;"/></p>
 
-In this experiment, we have used six ImageNet-pretrained models such as VGG16, ResNet50, EfficientNetB0. To reuse lower layers of the models (feature extractor) and train it with our custom dataset only on layers of classifier due to the small dataset differing from the ImageNet dataset (including fine-tune model)
+In this experiment, we have used six ImageNet-pretrained models such as VGG16, ResNet50, EfficientNetB0. To reuse lower layers of the models (**`feature extractor`**) and train it with our custom dataset only on layers of **`classifier`** due to the small dataset differing from the ImageNet dataset (including fine-tune model)
 
 
 ### The best model
 
-EfficientNetB0 is one of six ImageNet-pretrained models we experiment with, performs 93.37% accurately on the test set with transfer learning no fine-tuning. In addition,we freeze the pre-trained CNN parameters to be non-trainable — we can see that we have more than 4M non-trainable parameters in our new model. 
+**`EfficientNetB0`** is one of six **`ImageNet-pretrained models`** we experiment with, performs 93.37% accurately on the test set with transfer learning no fine-tuning. In addition,we freeze the pre-trained CNN parameters to be non-trainable — we can see that we have more than 4M non-trainable parameters in our new model. 
 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/6107d576979f9c328382ab49bbcad0adf78e2921/classifier%20of%20EfficientNetB0.png" style="width:600px;"/></p>
@@ -63,7 +63,7 @@ EfficientNetB0 is one of six ImageNet-pretrained models we experiment with, perf
 The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters as shown in the figure below. (This also results in a shorter training time per epoch when compared to the benchmark model.)
 
 ## 4. Training
-Our custom models were compiled with Adam as the optimizer, sparse_categorical_crossentropy as the loss function, and ReLU as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in Google Colab environment, providing access to decreasing the training time within 60 seconds. Therefore, we have trained the model for 100 epochs with a batch size of 100. Then, the trained model was exported in the HDF5 file as a multi-class classifier. 
+Our custom models were compiled with **`Adam`** as the optimizer, **`sparse_categorical_crossentropy`** as the loss function, and **`ReLU`** as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in **`Google Colab`** environment, providing access to decreasing the training time within 60 seconds. Therefore, we have trained the model for 100 epochs with a batch size of 100. Then, the trained model was exported in the HDF5 file as a multi-class classifier. 
 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/eb43e06a6711c75aa460bd88dce7e34653b85bdf/asset/model%20acc.png" style="width:700px;"/></p>
@@ -101,8 +101,7 @@ We can compare the test metric between transfer learning with no fine-tuning and
  	
 • Surprisingly, Transfer learning, training only a classifier for the new dataset, classifies data better than fine-tuning, replacing and retraining the classifier, and then fine-tuning the weights of the pre-trained network via backpropagation. However, recall that pre-trained on ImageNet dataset has been trained on millions of images, including xxx images. Its convolutional layers and trained weights can detect generic features such as edges, colors, etc.
 
-• In this experiment, we find that using some higher model architectures requiring computational power does not guarantee to work best with every dataset.
-On the other hand, EfficientNetB0 architecture with the least complexity outperforms the image dataset with lesser size.
+• In this experiment, we find that using some higher model architectures requiring computational power does not guarantee to work best with every dataset. On the other hand, **`EfficientNetB0`** architecture with the least complexity outperforms the image dataset with lesser size.
 
 ## 7. Conclusion
 
