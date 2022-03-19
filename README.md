@@ -89,7 +89,7 @@ We now have predictions for models we want to compare. Below is visualizing clas
 
 ### Comparing Models
 
-We can compare the test metric between transfer learning with no fine-tuning and that with fine-tuning. The results show that the first approach with EfficientNetB0 architecture, training only layers of the classifier, captured the patterns in the data more effectively, increasing accuracy to 93.37% in the test set. It is probably thanks to the nature of the data where the model was initially trained and how it transfers to the character domain of the Buddha images. 
+We can compare the test metric between transfer learning with no fine-tuning and that with fine-tuning. The results show that the first approach with **`EfficientNetB0`** architecture, training only layers of the classifier, captured the patterns in the data more effectively, increasing accuracy to 93.37% in the test set. It is probably thanks to the nature of the data where the model was initially trained and how it transfers to the character domain of the Buddha images. 
 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/457f96aeee9d94bb14956d87a061425c89bdd828/asset/Results%20comparing%20the%206%20models%20tested.png" style="width:850px;"/></p>
@@ -106,7 +106,7 @@ On the other hand, EfficientNetB0 architecture with the least complexity outperf
 
 ## 7. Conclusion
 
- In this study, we solved an image classification problem with our custom dataset using transfer learning and fine-tuning. Transfer learning can be a great starting point for training a model when not possessing a large amount of data. It requires that a model has been pre-trained on a robust source task which can be easily adapted to solve a smaller target task like classifying the Buddha images.
+ In this study, we solved an **`image classification`** problem with our custom dataset using **`transfer learning`** and **`fine-tuning`**. Transfer learning can be a great starting point for training a model when not possessing a large amount of data. It requires that a model has been pre-trained on a robust source task which can be easily adapted to solve a smaller target task like classifying the **`Buddha images`**.
 Moreover, collecting our own set of images that cannot be classified with models pre-trained on ImageNet makes us think deeply about how ConvNet works with an image and how we handle the data before passing it through the model's layers.
 
 ## End Credit
