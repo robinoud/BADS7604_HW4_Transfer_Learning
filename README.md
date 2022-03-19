@@ -39,7 +39,7 @@ Link to download the dataset: https://drive.google.com/drive/folders/1JzbkJWOOQN
 In the process, all images are converted to a .png file and manually extracted into sub-folders for easy access in the next steps. Then, we resize the images by running **`tf.keras.preprocessing.image.load_img()`** function to load the images with different heights and widths into PIL format, sizing 224 x 224 pixels as CNN models expect such a target size. A PIL Image instance is then converted to a Numpy array using **`tf.keras.preprocessing.image.img_to_array()`** function, returning a 3D Numpy array (501, 224, 224, 3). Last step, we also need to run the images through a preprocess input function of the model we have used, such as **`tf.keras.applications.efficientnet.preprocess_input()`** for preprocessing the NumPy array encoding a batch of images.
 
 <p align="center">
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/786e5b558be0f610d95958e3cbe30c0b0b70fc31/preprocessed%20five%20Buddha%20images.jpg" style="width:900px;"/>
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/786e5b558be0f610d95958e3cbe30c0b0b70fc31/preprocessed%20five%20Buddha%20images.jpg" style="width:1000px;"/>
  </p>
 
 Finally, we split each Buddha image into three sets: train, valid, and test. These classes are necessary for training our model. We decided to use an 53.6% train, 13.4% valid, and 33% test formula. 
@@ -63,7 +63,7 @@ EfficientNetB0 is one of six ImageNet-pretrained models we experiment with, perf
 The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters as shown in the figure below. (This also results in a shorter training time per epoch when compared to the benchmark model.)
 
 ## 4.Training
-Our custom models were compiled with Adam as the optimizer, sparse_categorical_crossentropy as the loss function, and ReLU as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in Google Colab environment, providing access to decreasing the training time within 60 seconds. Therefore!, we have trained the model for 100 epochs with a batch size of 100. Then, the trained model was exported in the HDF5 file as a multi-class classifier. 
+Our custom models were compiled with Adam as the optimizer, sparse_categorical_crossentropy as the loss function, and ReLU as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in Google Colab environment, providing access to decreasing the training time within 60 seconds. Therefore, we have trained the model for 100 epochs with a batch size of 100. Then, the trained model was exported in the HDF5 file as a multi-class classifier. 
 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/25a8ad01c49e30cb4039854c3704e2103585b198/asset/model%20acc%20&%20loss.jpeg" style="width:700px;"/></p>
@@ -71,7 +71,10 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 ### Using Pre-trained Layers for Fine-Tuning
 
 ## 5.Result
+We can interpret this as having two issues of concern from the model loss graph. 
+1. **`Overfit learning curves`** may occur now since the plot of training loss decreases with experience, whereas The plot of validation loss decreases to a point and begins increasing again. It can indicate that the model has more capacity than is required for the problem and too much flexibility, or the model is trained for too long.
 
+2. We are probably facing an **`unrepresentative train dataset`** due to a large gap between training and validation curves. This is because the training dataset may have too few examples compared to the validation dataset.
 ### Evaluation metric
 We now have predictions for models we want to compare. Below is visualizing class-wise predictions in a confusion matrix using the heatmap method. This tells us how many correct and incorrect classifications each model made by comparing the true class versus the predicted class. Naturally, the larger the values down the diagonal, the better the model did. From the confusion matrix, the performance of the transfer learning model with no fine-tuning is closed to that with fine-tuning, evident from the stronger diagonal and lighter cells everywhere else. We can also see from the confusion matrix that this model most commonly misclassifies Thong as Sothon.
 
