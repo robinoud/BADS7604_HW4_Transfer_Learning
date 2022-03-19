@@ -39,7 +39,7 @@ Link to download the dataset: https://drive.google.com/drive/folders/1JzbkJWOOQN
 In the process, all images are converted to a .png file and manually extracted into sub-folders for easy access in the next steps. Then, we resize the images by running **`tf.keras.preprocessing.image.load_img()`** function to load the images with different heights and widths into PIL format, sizing 224 x 224 pixels as CNN models expect such a target size. A PIL Image instance is then converted to a Numpy array using **`tf.keras.preprocessing.image.img_to_array()`** function, returning a 3D Numpy array (501, 224, 224, 3). Last step, we also need to run the images through a preprocess input function of the model we have used, such as **`tf.keras.applications.efficientnet.preprocess_input()`** for preprocessing the NumPy array encoding a batch of images.
 
 <p align="center">
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/786e5b558be0f610d95958e3cbe30c0b0b70fc31/preprocessed%20five%20Buddha%20images.jpg" style="width:800px;"/>
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/786e5b558be0f610d95958e3cbe30c0b0b70fc31/preprocessed%20five%20Buddha%20images.jpg" style="width:900px;"/>
  </p>
 
 Finally, we split each Buddha image into three sets: train, valid, and test. These classes are necessary for training our model. We decided to use an 53.6% train, 13.4% valid, and 33% test formula. 
@@ -85,7 +85,7 @@ We now have predictions for models we want to compare. Below is visualizing clas
 We can compare the test metric between transfer learning with no fine-tuning and that with fine-tuning. The results show that the first approach with EfficientNetB0 architecture, training only layers of the classifier, captured the patterns in the data more effectively, increasing accuracy to 93.37% in the test set. It is probably thanks to the nature of the data where the model was initially trained and how it transfers to the character domain of the Buddha images. 
 
 <p align="center">
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/457f96aeee9d94bb14956d87a061425c89bdd828/asset/Results%20comparing%20the%206%20models%20tested.png" style="width:700px;"/></p>
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/457f96aeee9d94bb14956d87a061425c89bdd828/asset/Results%20comparing%20the%206%20models%20tested.png" style="width:850px;"/></p>
 
 
 
