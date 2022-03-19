@@ -72,7 +72,7 @@ Our custom models were compiled with **`Adam`** as the optimizer, **`sparse_cate
 
 ## 5. Result
 We can interpret this as having two issues of concern from the model loss graph. 
-1. **`Overfit learning curves`** may occur now since the plot of training loss decreases with experience, whereas The plot of validation loss decreases to a point and begins increasing again. It can indicate that the model has more capacity than is required for the problem and too much flexibility, or the model is trained for too long.
+1. **`Overfit learning curves`** may occur now since the plot of training loss decreases with experience, whereas the plot of validation loss decreases to a point and begins increasing again. It can indicate that the model has more capacity than is required for the problem and too much flexibility, or the model is trained for too long.
  
 2. We are probably facing an **`unrepresentative train dataset`** due to a large gap between training and validation curves. This is because the training dataset may have too few examples compared to the validation dataset.
 
