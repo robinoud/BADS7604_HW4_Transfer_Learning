@@ -1,7 +1,7 @@
 # Image Data: CNN and Pretraining
 ## _Powered by The Deep Sleeping Crew (Group6)_
 
-## 1.Introduction
+## 1. Introduction
 Most Thai, who are Buddhists, tend to bond and pay respect to Buddha images in their daily life; however, only a few people can remember and recognize the details of Buddha images. Thus, the question has been raised 'Can you distinguish the outstanding features of the **`Five Floating Buddha Statues`** in the figure below?' If it is not, let our model do it! 
 
 These Buddha images are one of the religious groups frequented by Thai to worship for good fortune; three are very similar. Therefore, this work aims to collect an image dataset of the five 'Floating Buddha Statues'. Then, to create an image classifier using **`CNN pre-trained on ImageNet dataset`**, transfer learning to perform **`multi-class classification`** and recognize classes of the images that were never trained before.
@@ -17,7 +17,7 @@ According to the legend, there once were Five Buddha statues with miraculous pow
 The five Buddha images and temples are 1) **`Luang Pho Sothon (โสธร)`**, a Buddha image seated in the Dhyani pose, was found in the Bang Pakong River; 2) **`Luang Pho Toh (โต)`**, a Buddha image seated in the Bhumisparsa pose, was found at the Chao Phraya River; 3) **`Luang Pho Wat Ban Laem (วัดบ้านแหลม)`**, a Buddha image standing in the Pahng Um Baat pose, was found floating in the Mae Klong (แม่กลอง) River; 4) **`Luang Pho Wat Rai Khing (วัดไร่ขิง)`**, a Buddha image seated in the Bhumisparsa pose, was found in the Nakhon Chai Sri River; and 5) **`Luang Pho Thong Khao Ta-Khrao (ทองเขาตะเครา)`**, a Buddha image seated in the Bhumisparsa pose, was found at the Phetchaburi River.
 
 
-## 2.Dataset
+## 2. Dataset
 ### Data source
 The five Floating Buddha Statues are mostly rare art items that may belong to personal or family property; thus, the set of images cannot be collected by photographing itself. Therefore, the various sources on the internet would be suitable material as the solution, especially the Thai Amulet websites being like a gold mine, filled with Buddha images in good condition which represent their details and patterns.
 
@@ -44,7 +44,7 @@ In the process, all images are converted to a .png file and manually extracted i
 
 Finally, we split each Buddha image into three sets: train, valid, and test. These classes are necessary for training our model. We decided to use an 53.6% train, 13.4% valid, and 33% test formula. 
 
-## 3.Network Architecture
+## 3. Network Architecture
 It would be impossible for us with no high computing power to train models from scratch with massive amounts of image data. However, there is now a transfer learning technique that empowers us to jump-start our CNNs with the big SOTA models and their pre-trained weights. 
 
 <p align="center">
@@ -62,7 +62,7 @@ EfficientNetB0 is one of six ImageNet-pretrained models we experiment with, perf
   
 The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters as shown in the figure below. (This also results in a shorter training time per epoch when compared to the benchmark model.)
 
-## 4.Training
+## 4. Training
 Our custom models were compiled with Adam as the optimizer, sparse_categorical_crossentropy as the loss function, and ReLU as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in Google Colab environment, providing access to decreasing the training time within 60 seconds. Therefore, we have trained the model for 100 epochs with a batch size of 100. Then, the trained model was exported in the HDF5 file as a multi-class classifier. 
 
 <p align="center">
@@ -70,7 +70,7 @@ Our custom models were compiled with Adam as the optimizer, sparse_categorical_c
 
 ### Using Pre-trained Layers for Fine-Tuning
 
-## 5.Result
+## 5. Result
 We can interpret this as having two issues of concern from the model loss graph. 
 1. **`Overfit learning curves`** may occur now since the plot of training loss decreases with experience, whereas The plot of validation loss decreases to a point and begins increasing again. It can indicate that the model has more capacity than is required for the problem and too much flexibility, or the model is trained for too long.
  
@@ -97,14 +97,14 @@ We can compare the test metric between transfer learning with no fine-tuning and
 
 
 
-## 6.Discussion
+## 6. Discussion
  	
 • Surprisingly, Transfer learning, training only a classifier for the new dataset, classifies data better than fine-tuning, replacing and retraining the classifier, and then fine-tuning the weights of the pre-trained network via backpropagation. However, recall that pre-trained on ImageNet dataset has been trained on millions of images, including xxx images. Its convolutional layers and trained weights can detect generic features such as edges, colors, etc.
 
 • In this experiment, we find that using some higher model architectures requiring computational power does not guarantee to work best with every dataset.
 On the other hand, EfficientNetB0 architecture with the least complexity outperforms the image dataset with lesser size.
 
-## 7.Conclusion
+## 7. Conclusion
 
  In this study, we solved an image classification problem with our custom dataset using transfer learning and fine-tuning. Transfer learning can be a great starting point for training a model when not possessing a large amount of data. It requires that a model has been pre-trained on a robust source task which can be easily adapted to solve a smaller target task like classifying the Buddha images.
 Moreover, collecting our own set of images that cannot be classified with models pre-trained on ImageNet makes us think deeply about how ConvNet works with an image and how we handle the data before passing it through the model's layers.
