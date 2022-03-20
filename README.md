@@ -1,6 +1,13 @@
 # Image Data: CNN and Pretraining
 ## _Powered by The Deep Sleeping Crew (Group6)_
 
+## Highlights
+• Compare the performance between **`Transfer Learning`** and **`Fine-Tuning`** on our custom dataset.
+
+• Apply **`Grad-CAM`** to understand which parts of an image CNN use to identify as belonging to a given class.
+
+• Accidentally was haked by **`black-box AI`**
+
 ## 1. Introduction
 Most Thai, who are Buddhists, tend to bond and pay respect to Buddha images in their daily life; however, only a few people can remember and recognize the details of Buddha images. Thus, the question has been raised 'Can you distinguish the outstanding features of the **`Five Floating Buddha Statues`** in the figure below?' If it is not, let our model do it! 
 
@@ -100,7 +107,7 @@ We can compare the test metric between transfer learning with no fine-tuning and
 
 This is the final step that verifies the model's output in terms of explaining how it made its decision by properly validating how the model arrived at its final output. We applied **`Gradient-weighted Class Activation Mapping`** (Grad-CAM) to understand which parts of an image were identified as belonging to a given class. 
 
-The discriminative region used by CNN to identify the output class is where the hot part of the image. As you can see from the figure above, the first four Buddha images, namely Sothon, Toh, Wat Ban Leam, and Wat Rai Khing, were captured by CNN on their patterns of the outstanding features except for the last one, Thong, which the model identified the class by its background of the image. This resulted from the problem of collecting datasets of this class, caused by the background image of the image that the model can capture the pattern to make the decision.
+The discriminative region used by CNN to identify the output class is where the hot part of the image. As you can see from the figure above, the first four Buddha images, namely Sothon, Toh, Wat Ban Leam, and Wat Rai Khing, respectively, were captured by CNN on their patterns of the outstanding features except for the last one, Thong, which the model identified the class by its background of the image. This resulted from the problem of collecting datasets of this class, caused by the background image of the image that the model can capture the pattern to make the decision.
 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/d367e75c059c12ed58e82878f5059a5c8b78fa0a/asset/merge1+2+3+4+5.jpeg" style="width:1000px;"/>
@@ -113,14 +120,18 @@ Moreover, even though Toh, Wat Rai Khing, and Thong are Buddha images seated in 
 
 ## 6. Discussion
  	
-• Surprisingly, Transfer learning, training only a classifier for the new dataset, classifies data better than fine-tuning, replacing and retraining the classifier, and then fine-tuning the weights of the pre-trained network via backpropagation. However, recall that pre-trained on ImageNet dataset has been trained on millions of images, including xxx images. Its convolutional layers and trained weights can detect generic features such as edges, colors, etc.
+• Surprisingly, Transfer learning, training only a classifier for the new dataset, classifies data better than fine-tuning, replacing and retraining the classifier, and then fine-tuning the weights of the pre-trained network via backpropagation. However, recall that pre-trained on ImageNet dataset has been trained on millions of images. Its convolutional layers and trained weights can detect generic features such as edges, colors, etc.
 
 • In this experiment, we find that using some higher model architectures requiring computational power does not guarantee to work best with every dataset. On the other hand, **`EfficientNetB0`** architecture with the least complexity outperforms the image dataset with lesser size.
 
+• We accidentally created CNN models that misclassified the class of Thong by looking at the background instead of capturing its unique patterns. It reminds us to be fully aware of collecting a good set of images for Deep learning models.
+
 ## 7. Conclusion
 
- In this study, we solved an **`image classification`** problem with our custom dataset using **`transfer learning`** and **`fine-tuning`**. Transfer learning can be a great starting point for training a model when not possessing a large amount of data. It requires that a model has been pre-trained on a robust source task which can be easily adapted to solve a smaller target task like classifying the **`Buddha images`**.
+In this study, we solved an image classification problem with our custom dataset using transfer learning and fine-tuning. Transfer learning can be a great starting point for training a model when not possessing a large amount of data. We can easily adapt it to solve multi-class classification and recognize classes of the Five Buddha Statues with an accuracy of 93.37% on the test set.
+
 Moreover, collecting our own set of images that cannot be classified with models pre-trained on ImageNet makes us think deeply about how ConvNet works with an image and how we handle the data before passing it through the model's layers.
+
 
 ## End Credit
  This study is a part of **`Deep Learning course`**  (BADS7604), Businuss Analytics and Data Science, National Institute of Development Admistration (**`NIDA`**)
