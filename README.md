@@ -94,6 +94,8 @@ We can compare the test metric between transfer learning with no fine-tuning and
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/457f96aeee9d94bb14956d87a061425c89bdd828/asset/Results%20comparing%20the%206%20models%20tested.png" style="width:850px;"/></p>
 
+
+
 ### Visualizing what CNN learned with Grad-Cam
 
 This is the final step that verifies the model's output in terms of explaining how it made its decision by properly validating how the model arrived at its final output. We applied **`Gradient-weighted Class Activation Mapping`** (Grad-CAM) to understand which parts of an image were identified as belonging to a given class. 
