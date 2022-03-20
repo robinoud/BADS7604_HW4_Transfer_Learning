@@ -94,7 +94,19 @@ We can compare the test metric between transfer learning with no fine-tuning and
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/457f96aeee9d94bb14956d87a061425c89bdd828/asset/Results%20comparing%20the%206%20models%20tested.png" style="width:850px;"/></p>
 
+### Visualizing what CNN learned with Grad-Cam
 
+This is the final step that verifies the model's output in terms of explaining how it made its decision by properly validating how the model arrived at its final output. We applied **`Gradient-weighted Class Activation Mapping`** (Grad-CAM) to understand which parts of an image were identified as belonging to a given class. 
+
+The discriminative region used by CNN to identify the output class is where the hot part corresponds. As you can see from the figure above, the first four Buddha images, namely Sothon, Toh, Wat Ban Leam, and Wat Rai Khing, were captured by CNN on their patterns of the outstanding features except for the last one, Thong, which the model identified the class by its background of the image. This resulted from the problem of collecting datasets of this class, caused by the background image of the image that the model can capture the pattern to make the decision.
+
+<p align="center">
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/d367e75c059c12ed58e82878f5059a5c8b78fa0a/asset/merge1+2+3+4+5.jpeg" style="width:1000px;"/>
+ </p>
+
+
+
+Moreover, even though Toh, Wat Rai Khing, and Thong are Buddha images seated in the Bhumisparsa pose, the model can adequately classify them by their base parts different from each other. However, since the image dataset of Thong has its background bias for the model to predict its class, we will solve this issue later for further improvement.
 
 
 ## 6. Discussion
