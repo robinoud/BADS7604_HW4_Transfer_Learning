@@ -1,5 +1,5 @@
 # Image Data: CNN and Pretraining
-## _Powered by The Deep Sleeping Crew (Group6)_
+
 
 ## Highlights
 • Compare the performance between **`Transfer Learning`** and **`Fine-Tuning`** on our custom dataset.
