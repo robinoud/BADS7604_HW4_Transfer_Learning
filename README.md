@@ -1,6 +1,5 @@
 <img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=dfaa28&text=CNN%20and%20Pretraining&height=150&fontSize=60&desc=with%20the%20Buddha%20images&descAlignY=75&descAlign=60" /> 
 
-
 ## Highlights
 •  **`Transfer Learning`** and **`Fine-Tuning`** applied to our custom dataset, the Buddha images.
 
@@ -65,9 +64,10 @@ In this experiment, we have used six ImageNet-pretrained models such as VGG16, R
 
 **`EfficientNetB0`** is one of six **`ImageNet-pretrained models`** we experiment with, performs 93.37% accurately on the test set with transfer learning no fine-tuning. In addition, we freeze the pre-trained CNN parameters to be non-trainable — we can see that we have more than 4M non-trainable parameters in our new model. 
 
-<p align="center">
-<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/6107d576979f9c328382ab49bbcad0adf78e2921/classifier%20of%20EfficientNetB0.png" style="width:600px;"/></p>
-  
+
+  <p align="center">
+<img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/4f50fa8a170787ea4098c8c844ad8d8b2e526e0c/model's%20classifier.png" style="width:250px;"/></p>
+
 The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters as shown in the figure above. 
 
 ## 4. Training
