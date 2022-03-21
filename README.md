@@ -2,11 +2,12 @@
 
 
 ## Highlights
-• Compare the performance between **`Transfer Learning`** and **`Fine-Tuning`** on our custom dataset.
+•  **`Transfer Learning`** and **`Fine-Tuning`** applied to our custom dataset, the Buddha images.
 
-• Apply **`Grad-CAM`** to understand which parts of an image CNN use to identify as belonging to a given class.
+• **`Grad-CAM`** was employed to understand which parts of an image CNN capture to identify as belonging to a given class.
 
 • Accidentally was haked by **`black-box AI`**
+
 
 ## 1. Introduction
 Most Thai, who are Buddhists, tend to bond and pay respect to Buddha images in their daily life; however, only a few people can remember and recognize the details of Buddha images. Thus, the question has been raised 'Can you distinguish the outstanding features of the **`Five Floating Buddha Statues`** in the figure below?' If it is not, let our model do it! 
