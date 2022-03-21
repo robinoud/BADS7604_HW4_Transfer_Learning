@@ -77,7 +77,7 @@ Our custom models were compiled with **`Adam`** as the optimizer, **`sparse_cate
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/eb43e06a6711c75aa460bd88dce7e34653b85bdf/asset/model%20acc.png" style="width:700px;"/></p>
 
 ### Using Pre-trained Layers for Fine-Tuning
-In the previous approach, transfer learning, there was no actual training on these pre-trained layers; however, fine-tuning aims to allow a portion of the pre-trained layers to retrain in this section. We use the same model's classifier as the best model has above, and all parts of pre-trained layers then are unfrozen. Last, we pass image data through the pre-trained layers and 'fine-tune' the trainable layers alongside our Fully-Connected layer.
+In the previous approach, transfer learning, there was no actual training on these pre-trained layers; however, fine-tuning aims to allow a portion of the pre-trained layers to retrain in this section. We use the same model's classifier as the best model has above, and all parts of pre-trained layers then are unfrozen. Last, we pass image data through the pre-trained layers and fine-tune the trainable layers alongside our Fully-Connected layer.
 
 
 ## 5. Result
