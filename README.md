@@ -58,7 +58,7 @@ It would be impossible for us with no high computing power to train models from 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/0236b467df162ed81b1eb582e0c5629e93364ea9/CNN%20for%20image%20classification.png" style="width:600px;"/></p>
 
-In this experiment, we have used six ImageNet-pretrained models such as VGG16, ResNet50, EfficientNetB0 to reuse lower layers of the models (**`feature extractor`**) and train only on layers of **`classifier`** with our custom dataset due to the small dataset differing from the ImageNet dataset. 
+In this experiment, we have used six ImageNet-pretrained models such as VGG16, ResNet50, EfficientNetB0 to reuse lower layers of the models (**`feature extractor`**) and train only on layers of **`classifier`** with our custom dataset due to the small dataset differing from the ImageNet dataset. This also results in a shorter training time when compared to Fine-Tuning.
 
 
 ### The best model
@@ -68,7 +68,7 @@ In this experiment, we have used six ImageNet-pretrained models such as VGG16, R
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/6107d576979f9c328382ab49bbcad0adf78e2921/classifier%20of%20EfficientNetB0.png" style="width:600px;"/></p>
   
-The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters as shown in the figure below. (This also results in a shorter training time per epoch when compared to the benchmark model.)
+The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters as shown in the figure above. 
 
 ## 4. Training
 Our custom models were compiled with **`Adam`** as the optimizer, **`sparse_categorical_crossentropy`** as the loss function, and **`ReLU`** as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in **`Google Colab`** environment, providing access to decreasing the training time within 60 seconds. Therefore, we have trained the model for 100 epochs with a batch size of 100. Then, the trained model was exported in the HDF5 file as a multi-class classifier. 
