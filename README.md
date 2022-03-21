@@ -5,7 +5,7 @@
 
 • **`Grad-CAM`** was employed to understand which parts of an image CNN capture to identify as belonging to a given class.
 
-• Accidentally was haked by **`black-box AI`**
+• Accidentally was hacked by **`black-box AI`**
 
 
 ## 1. Introduction
