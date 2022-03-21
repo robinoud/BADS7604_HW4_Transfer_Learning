@@ -1,4 +1,4 @@
-# Image Data: CNN and Pretraining
+<img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=dfaa28&text=CNN%20and%20Pretraining&height=150&fontSize=60&desc=with%20the%20Buddha%20images&descAlignY=75&descAlign=60" /> 
 
 
 ## Highlights
