@@ -58,12 +58,12 @@ It would be impossible for us with no high computing power to train models from 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/0236b467df162ed81b1eb582e0c5629e93364ea9/CNN%20for%20image%20classification.png" style="width:600px;"/></p>
 
-In this experiment, we have used six ImageNet-pretrained models such as VGG16, ResNet50, EfficientNetB0. To reuse lower layers of the models (**`feature extractor`**) and train it with our custom dataset only on layers of **`classifier`** due to the small dataset differing from the ImageNet dataset (including fine-tune model)
+In this experiment, we have used six ImageNet-pretrained models such as VGG16, ResNet50, EfficientNetB0 to reuse lower layers of the models (**`feature extractor`**) and train only on layers of **`classifier`** with our custom dataset due to the small dataset differing from the ImageNet dataset. 
 
 
 ### The best model
 
-**`EfficientNetB0`** is one of six **`ImageNet-pretrained models`** we experiment with, performs 93.37% accurately on the test set with transfer learning no fine-tuning. In addition,we freeze the pre-trained CNN parameters to be non-trainable — we can see that we have more than 4M non-trainable parameters in our new model. 
+**`EfficientNetB0`** is one of six **`ImageNet-pretrained models`** we experiment with, performs 93.37% accurately on the test set with transfer learning no fine-tuning. In addition, we freeze the pre-trained CNN parameters to be non-trainable — we can see that we have more than 4M non-trainable parameters in our new model. 
 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/6107d576979f9c328382ab49bbcad0adf78e2921/classifier%20of%20EfficientNetB0.png" style="width:600px;"/></p>
