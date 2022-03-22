@@ -11,7 +11,7 @@
 ## 1. Introduction
 Most Thai, who are Buddhists, tend to bond and pay respect to Buddha images in their daily life; however, only a few people can remember and recognize the details of Buddha images. Thus, the question has been raised 'Can you distinguish the outstanding features of the **`Five Floating Buddha Statues`** in the figure below?' If it is not, let our model do it! 
 
-These Buddha images are one of the religious groups frequented by Thai to worship for good fortune; three are very similar. Therefore, this work aims to collect an image dataset of the Five Floating Buddha Statues. Then, to create an image classifier using **`CNN pre-trained on ImageNet dataset`**, transfer learning to perform **`multi-class classification`** and recognize classes of the images that were never trained before.
+These Buddha images are one of the religious groups frequented by Thai to worship for good fortune; three are very similar. Therefore, this work aims to collect an image dataset of the Five Floating Buddha Statues. Then, to create an image classifier using **`CNN pre-trained on ImageNet dataset`** for transfer learning to perform **`multi-class classification`** and recognize classes of the images that were never trained before.
 
 <p align="center">
   <img width="650" src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/d9161d1181fe12d2ba2763718c3d16c7a12a6d4c/5%20Floating%20Buddha%20Statues.jpeg">
@@ -26,7 +26,7 @@ The five Buddha images and temples are 1) **`Luang Pho Sothon (โสธร)`**,
 
 ## 2. Dataset
 ### Data source
-The five Floating Buddha Statues are mostly rare art items that may belong to personal or family property; thus, the set of images cannot be collected by photographing itself. Therefore, the various sources on the internet would be suitable material as the solution, especially the Thai Amulet websites being like a gold mine, filled with Buddha images in good condition which represent their details and patterns.
+The Five Floating Buddha Statues are mostly rare art items that may belong to personal or family property; thus, the set of images cannot be collected by photographing itself. Therefore, the various sources on the internet would be suitable material as the solution, especially the Thai Amulet websites being like a gold mine, filled with Buddha images in good condition which represent their details and patterns.
 
 
 | Class Code No.| Thai Name | English Name |
@@ -68,7 +68,7 @@ In this experiment, we have used six ImageNet-pretrained models such as VGG16, R
   <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/4f50fa8a170787ea4098c8c844ad8d8b2e526e0c/model's%20classifier.png" style="width:250px;"/></p>
 
-The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters as shown in the figure above. 
+The model's classifier consists of one flatten layer, five dense layers, one dropout layer with 50%, and one output layer with softmax activation, totaling 32M trainable parameters. 
 
 ## 4. Training
 Our custom models were compiled with **`Adam`** as the optimizer, **`sparse_categorical_crossentropy`** as the loss function, and **`ReLU`** as the activation function. A GPU used for training the model was Tesla P100-PCIE-16GB in **`Google Colab`** environment, providing access to decreasing the training time within 60 seconds. Therefore, we have trained the model for 100 epochs with a batch size of 100. Then, the trained model was exported in the HDF5 file as a multi-class classifier. 
