@@ -43,7 +43,7 @@ Link to download the dataset: https://drive.google.com/drive/folders/1JzbkJWOOQN
 
 ### Data pre-processing and splitting
 
-In the process, all images are converted to  .png files and manually extracted into sub-folders for easy access in the next steps. Then, we resize the images by running **`tf.keras.preprocessing.image.load_img()`** function for loading the images with different heights and widths into PIL format, sizing 224 x 224 pixels as CNN models expect such a target size. A PIL Image instance is then converted to a Numpy array using **`tf.keras.preprocessing.image.img_to_array()`** function, returning a 3D Numpy array (501, 224, 224, 3). Last step, we also need to run the images through a preprocess input function of the models we have used, such as **`tf.keras.applications.efficientnet.preprocess_input()`** for preprocessing the NumPy array encoding a batch of images.
+In the process, all images were converted to  .png files and manually extracted into sub-folders for easy access in the next steps. Then, we resized the images by running **`tf.keras.preprocessing.image.load_img()`** function for loading the images with different heights and widths into PIL format, sizing 224 x 224 pixels as CNN models expect such a target size. A PIL Image instance was then converted to a Numpy array using **`tf.keras.preprocessing.image.img_to_array()`** function, returning a 3D Numpy array (501, 224, 224, 3). Last step, we also needed to run the images through a preprocess input function of the models we have used, such as **`tf.keras.applications.efficientnet.preprocess_input()`** for preprocessing the NumPy array encoding a batch of images.
 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/786e5b558be0f610d95958e3cbe30c0b0b70fc31/preprocessed%20five%20Buddha%20images.jpg" style="width:1000px;"/>
@@ -58,9 +58,9 @@ It would be impossible for us with no high computing power to train models from 
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/0236b467df162ed81b1eb582e0c5629e93364ea9/CNN%20for%20image%20classification.png" style="width:600px;"/></p>
 
 ### Transfer Learning 
-In this experiment, we have used six ImageNet-pretrained models such as **`VGG16`**, **`ResNet50`**, **`EfficientNetB0`**, **`InceptionV3`**, **`DenseNet121`**, and **`MobileNetV2`**, to reuse lower layers of the models (**`feature extractor`**) and train only on layers of **`classifier`** with our custom dataset due to the small dataset differing from the ImageNet dataset. This also results in a shorter training time when compared to Fine-Tuning.
+In this experiment, we have used six ImageNet-pretrained models such as **`VGG16`**, **`ResNet50`**, **`EfficientNetB0`**, **`InceptionV3`**, **`DenseNet121`**, and **`MobileNetV2`**, to reuse lower layers of the models (**`feature extractor`**) and train only on layers of **`classifier`** with our custom dataset due to the small dataset differing from the ImageNet dataset. This also resulted in a shorter training time when compared to Fine-Tuning.
 
-**`EfficientNetB0`** is the best among six **`ImageNet-pretrained models`** we experiment with, performing 93.37% accurately on the test set with transfer learning no fine-tuning. In addition, we freeze the pre-trained CNN parameters to be non-trainable — we can see that we have more than 4M non-trainable parameters in our new model. 
+**`EfficientNetB0`** was the best among six **`ImageNet-pretrained models`** we experiment with, performing 93.37% accurately on the test set with transfer learning no fine-tuning. In addition, we freezed the pre-trained CNN parameters to be non-trainable — we can see that we have more than 4M non-trainable parameters in our new model. 
 
 
   <p align="center">
@@ -75,14 +75,14 @@ Our custom models were compiled with **`Adam`** as the optimizer, **`sparse_cate
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/eb43e06a6711c75aa460bd88dce7e34653b85bdf/asset/model%20acc.png" style="width:700px;"/></p>
 
 ### Using Pre-trained Layers for Fine-Tuning
-In the previous approach, transfer learning, there was no actual training on these pre-trained layers; however, fine-tuning aims to allow a portion of the pre-trained layers to retrain in this section. We use the same model's classifier as the best model has above, and all parts of pre-trained layers then are unfrozen. Last, we pass image data through the pre-trained layers and fine-tune the trainable layers alongside our Fully-Connected layer. At this moment, we expect that retraining the model's feature extractor on the dataset would beat the transfer learning approach.
+In the previous approach, transfer learning, there was no actual training on these pre-trained layers; however, fine-tuning aims to allow a portion of the pre-trained layers to retrain in this section. We used the same model's classifier as the best model has above, and all parts of pre-trained layers then are unfrozen. Last, we passed image data through the pre-trained layers and fine-tune the trainable layers alongside our Fully-Connected layer. At this moment, we expected that retraining the model's feature extractor on the dataset would beat the transfer learning approach.
 
 
 ## 5. Result
 We can interpret this as having two issues of concern from the model loss graph. 
 1. **`Overfit learning curves`** may occur now since the plot of training loss decreases with experience, whereas the plot of validation loss decreases to a point and begins increasing again. It can indicate that the model has more capacity than is required for the problem and too much flexibility, or the model is trained for too long.
  
-2. We are probably facing an **`unrepresentative train dataset`** due to a large gap between training and validation curves. This is because the training dataset may have too few examples compared to the validation dataset.
+2. We were probably facing an **`unrepresentative train dataset`** due to a large gap between training and validation curves. This was because the training dataset may have too few examples compared to the validation dataset.
 
 <p align="center">
 <img src="https://github.com/robinoud/BADS7604_HW4_Transfer_Learning/blob/eb43e06a6711c75aa460bd88dce7e34653b85bdf/asset/model%20loss.png" style="width:700px;"/></p>
@@ -116,16 +116,16 @@ The discriminative region used by CNN to identify the output class is where the 
 
 
 
-Moreover, even though Toh, Wat Rai Khing, and Thong are Buddha images seated in the Bhumisparsa pose, the model can adequately classify them by their base parts different from each other. However, since the image dataset of Thong has its background bias for the model to predict its class, we will solve this issue later for further improvement.
+Moreover, even though Toh, Wat Rai Khing, and Thong are Buddha images seated in the Bhumisparsa pose, the model could adequately classify them by their base parts different from each other. However, since the image dataset of Thong had its background bias for the model to predict its class, we would solve this issue later for further improvement.
 
 
 ## 6. Discussion
  	
-• Surprisingly, Transfer learning, training only a classifier on the new dataset, classifies data better than fine-tuning, replacing and retraining the classifier, and then fine-tuning the weights of the pre-trained network via backpropagation. However, recall that pre-trained architecture on ImageNet dataset has been trained on millions of images. Its convolutional layers and trained weights can detect generic features such as edges, colors, etc.
+• Surprisingly, Transfer learning, training only a classifier on the new dataset, classified data better than fine-tuning, replacing and retraining the classifier, and then fine-tuning the weights of the pre-trained network via backpropagation. However, recall that pre-trained architecture on ImageNet dataset has been trained on millions of images. Its convolutional layers and trained weights can detect generic features such as edges, colors, etc.
 
-• In this experiment, we find that using some higher model architectures requiring computational power does not guarantee to work best with the dataset. On the other hand, **`EfficientNetB0`** architecture with the less complexity outperforms the image dataset with lesser size.
+• In this experiment, we found that using some higher model architectures requiring computational power did not guarantee to work best with the dataset. On the other hand, **`EfficientNetB0`** architecture with the less complexity outperformed the image dataset with lesser size.
 
-• We accidentally created CNN models that misclassified the class of Thong by looking at the background instead of capturing its unique patterns. It reminds us to be fully aware of collecting a good set of images for Deep learning models.
+• We accidentally created CNN models that misclassified the class of Thong by looking at the background instead of capturing its unique patterns. It reminded us to be fully aware of collecting a good set of images for Deep learning models.
 
 ## 7. Conclusion
 
